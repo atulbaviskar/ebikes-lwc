@@ -1,0 +1,39 @@
+<template>
+    <h1>Welcome to system</h1>
+    <lightning-input class="slds-p-left_xx-large" type="checkbox" id="checkbox" label="Add and Remove" onchange={handlecheckboxChange} ></lightning-input>
+    <lightning-input class="slds-p-left_xx-large" type="checkbox" id="checkbox1" label="future Scope" ></lightning-input>
+    <lightning-input class="slds-p-left_xx-large" type="checkbox" id="checkbox2" label="Future scope" ></lightning-input>
+
+
+    <lightning-card title="Create Account Record" icon-name="standard:account">
+        <div style="margin-left: 6%" if:true={error}>
+            <lightning-badge label={error} style="color: red;"></lightning-badge>
+        </div>
+
+        <br>
+
+        <template if:true={IsCheck}>
+            <div class="slds-m-around--xx-large">
+                <div class="container-fluid">
+                    <div class="form-group">
+                        <lightning-input label="Enter Account Name" name="accName" required="required" type="text" value={accRecord.Name} onchange={handleNameChange}></lightning-input>
+                    </div>
+                    <div class="form-group">
+                        <lightning-input label="Enter Phone Number" name="accPhone" type="number" value={accRecord.Phone} onchange={handlePhoneChange}></lightning-input>
+                    </div>
+                    <div class="form-group">
+                        <lightning-input label="Enter Account Type" name="accEmail" required="required" type="text" value={accRecord.Type} onchange={handleTypeChange}></lightning-input>
+                    </div>
+                    <div class="form-group">
+                        <lightning-input label="Enter Industry" name="accEmail" type="text" value={accRecord.Industry} onchange={handleIndustryChange}></lightning-input>
+                    </div>
+                </div>
+                <br/>
+                <lightning-button label="Submit" onclick={handleSave} variant="brand"></lightning-button>
+                <lightning-button label="Next" onclick={handleNext} variant="destructive"></lightning-button>
+            </div>
+        </template>
+    </lightning-card>
+
+
+</template>
